@@ -1,0 +1,152 @@
+/* ─────────────────────────────────────────────
+   Wedding Invitation — Global CSS (Tailwind v4)
+   ───────────────────────────────────────────── */
+
+@import "tailwindcss";
+
+/* ── Latin fonts ── */
+@import "@fontsource/cinzel-decorative/400.css";
+@import "@fontsource/great-vibes/400.css";
+@import "@fontsource/cormorant-garamond/400.css";
+@import "@fontsource/cormorant-garamond/600.css";
+@import "@fontsource/cormorant-garamond/700.css";
+@import "@fontsource/cormorant-garamond/400-italic.css";
+
+/* ── Design tokens as CSS custom properties ── */
+@theme {
+  --color-crimson:      #7A0C1A;
+  --color-crimson-deep: #5A0A14;
+  --color-red:          #C1121F;
+  --color-cream:        #F6ECDA;
+  --color-ink:          #4A2B1A;
+  --color-gold:         #B8893B;
+  --color-gold-light:   #F3DFA2;
+  --color-gold-dark:    #8A6420;
+  --color-leaf:         #4B5A30; /* used only in FloralCorner */
+
+  --font-display: "Cinzel Decorative", serif;
+  --font-script:  "Great Vibes", cursive;
+  --font-serif:   "Cormorant Garamond", Georgia, serif;
+  --font-ml:      "Noto Serif Malayalam", serif;
+}
+
+/* ── Safe-area helpers ── */
+:root {
+  --safe-top:    env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left:   env(safe-area-inset-left, 0px);
+  --safe-right:  env(safe-area-inset-right, 0px);
+}
+
+/* ── Base resets & body defaults ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background-color: var(--color-crimson-deep); /* desktop outer ring */
+  color: var(--color-ink);
+  font-family: var(--font-serif);
+}
+
+/* When the page language is Malayalam, switch body font */
+:lang(ml) body,
+body:lang(ml) {
+  font-family: var(--font-ml);
+}
+
+:lang(ml) {
+  line-height: 1.75;
+}
+
+:lang(ml) .font-serif,
+:lang(ml) .font-display {
+  font-family: var(--font-ml), serif;
+}
+
+:lang(ml) .font-bold {
+  font-weight: 700;
+}
+
+/* ── Full-height helper using dvh ── */
+.h-screen-dvh {
+  height: 100dvh;
+}
+
+/* ── Phone-width content column (max 430px, centered) ── */
+.page-column {
+  width: 100%;
+  max-width: 430px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--color-cream);
+  min-height: 100dvh;
+}
+
+/* ── Gold gradient text utilities ── */
+
+/* For use on crimson/dark backgrounds (light stops) */
+.text-gold-gradient {
+  color: var(--color-gold); /* solid fallback */
+  background: linear-gradient(
+    90deg,
+    var(--color-gold-light) 0%,
+    var(--color-gold)       35%,
+    var(--color-gold-dark)  65%,
+    var(--color-gold-light) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* For use on cream/light backgrounds (dark stops – better contrast) */
+.text-gold-gradient-dark {
+  color: var(--color-gold-dark); /* solid fallback */
+  background: linear-gradient(
+    90deg,
+    var(--color-gold-dark)  0%,
+    var(--color-gold)       50%,
+    var(--color-gold-dark)  100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── Names font rule ──
+   In English: use the script (Great Vibes) font.
+   In Malayalam: use the ml font at weight 600 (no fake italics, no letter-spacing).
+   The .names-text class switches automatically via :lang(ml). */
+.names-text {
+  font-family: var(--font-script);
+}
+:lang(ml) .names-text {
+  font-family: var(--font-ml);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: normal;
+}
+
+/* ── Malayalam typography guards ── */
+:lang(ml) .tracking-wide,
+:lang(ml) .tracking-wider,
+:lang(ml) .tracking-widest {
+  letter-spacing: normal;
+}
+:lang(ml) .uppercase {
+  text-transform: none;
+}
+:lang(ml) .italic {
+  font-style: normal;
+}

@@ -1,0 +1,26 @@
+{
+  "name": "aamirsajeena",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "motion": "^12.23.6",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "@fontsource/cinzel-decorative": "*",
+    "@fontsource/great-vibes": "*",
+    "@fontsource/cormorant-garamond": "*",
+    "@fontsource/noto-serif-malayalam": "*"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.5.2",
+    "@tailwindcss/vite": "^4.1.11",
+    "tailwindcss": "^4.1.11",
+    "vite": "^6.3.5"
+  }
+}
