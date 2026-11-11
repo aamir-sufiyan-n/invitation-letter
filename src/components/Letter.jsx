@@ -106,8 +106,12 @@ export default function Letter({ t, lang, countdown }) {
         <Reveal delay={0.06}>
           <p
             className={`
-              text-[0.75rem] sm:text-xs text-[--color-ink] font-semibold mt-2 mb-0
-              ${lang === "ml" ? "font-ml normal-case tracking-normal text-xs font-semibold" : "font-cinzel uppercase tracking-[0.22em]"}
+              text-[--color-ink] font-medium mt-2 mb-0
+              ${
+                lang === "ml"
+                  ? "font-ml normal-case tracking-normal text-xs sm:text-sm font-medium"
+                  : "font-cinzel text-xs sm:text-sm uppercase tracking-[0.08em]"
+              }
             `}
           >
             {t("letter.tagline")}
