@@ -74,7 +74,7 @@ export default function Countdown({ countdown, t, lang, className = "mt-6" }) {
     return (
       <Reveal>
         <div className="mt-8 text-center px-4">
-          <p className="font-serif text-[--color-ink] text-lg sm:text-xl italic">
+          <p className="font-cinzel text-[--color-ink] text-lg sm:text-xl">
             {t("date.finished")}
           </p>
         </div>
@@ -117,12 +117,12 @@ export default function Countdown({ countdown, t, lang, className = "mt-6" }) {
               key={idx}
               className="min-w-0 flex flex-col items-center justify-center py-2 px-1 text-center"
             >
-              <span className="text-[--color-red] font-serif font-semibold text-3xl sm:text-4xl leading-none">
+              <span className="text-[--color-red] font-cinzel font-semibold text-3xl sm:text-4xl leading-none">
                 <DigitGroup value={value} reduced={reduced} />
               </span>
               <span
                 className={`
-                  text-[0.65rem] sm:text-xs text-[--color-ink]/70 font-serif mt-2 text-center leading-tight
+                  text-[0.65rem] sm:text-xs text-[--color-ink]/70 font-cinzel mt-2 text-center leading-tight
                   ${lang === "ml" ? "font-ml normal-case tracking-normal" : "uppercase tracking-widest"}
                 `}
               >

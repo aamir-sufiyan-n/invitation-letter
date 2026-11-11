@@ -25,7 +25,7 @@ export default function SecondaryButton({
     rounded-full
     border border-[--color-gold]/70
     bg-transparent text-[--color-ink]
-    font-serif text-xs sm:text-sm font-medium
+    font-cinzel text-xs sm:text-sm font-semibold
     tracking-[0.1em] uppercase
     cursor-pointer select-none no-underline
     focus-visible:outline-2 focus-visible:outline-[--color-gold-dark] focus-visible:outline-offset-2

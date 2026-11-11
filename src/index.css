@@ -5,12 +5,32 @@
 @import "tailwindcss";
 
 /* ── Latin fonts ── */
+@import "@fontsource/cinzel/400.css";
+@import "@fontsource/cinzel/600.css";
+@import "@fontsource/cinzel/700.css";
 @import "@fontsource/cinzel-decorative/400.css";
 @import "@fontsource/great-vibes/400.css";
 @import "@fontsource/cormorant-garamond/400.css";
 @import "@fontsource/cormorant-garamond/600.css";
 @import "@fontsource/cormorant-garamond/700.css";
 @import "@fontsource/cormorant-garamond/400-italic.css";
+
+/* ── Custom Script & Calligraphy Fonts ── */
+@font-face {
+  font-family: "Brittany Signature";
+  src: url("/fonts/brittany-signature.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MoonTime";
+  src: url("/fonts/moontime.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* ── Design tokens as CSS custom properties ── */
 @theme {
@@ -24,10 +44,13 @@
   --color-gold-dark:    #8A6420;
   --color-leaf:         #4B5A30; /* used only in FloralCorner */
 
-  --font-display: "Cinzel Decorative", serif;
-  --font-script:  "Great Vibes", cursive;
-  --font-serif:   "Cormorant Garamond", Georgia, serif;
-  --font-ml:      "Noto Serif Malayalam", serif;
+  --font-display:   "Cinzel Decorative", serif;
+  --font-cinzel:    "Cinzel", serif;
+  --font-brittany:  "Brittany Signature", cursive;
+  --font-moontime:  "MoonTime", cursive;
+  --font-script:    "Great Vibes", cursive;
+  --font-serif:     "Cormorant Garamond", Georgia, serif;
+  --font-ml:        "Noto Serif Malayalam", serif;
 }
 
 /* ── Safe-area helpers ── */
@@ -149,4 +172,15 @@ body:lang(ml) {
 }
 :lang(ml) .italic {
   font-style: normal;
+}
+
+/* ── Typography Utility Classes ── */
+.font-cinzel {
+  font-family: var(--font-cinzel), serif;
+}
+.font-brittany {
+  font-family: var(--font-brittany), cursive;
+}
+.font-moontime {
+  font-family: var(--font-moontime), cursive;
 }

@@ -9,17 +9,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/cinzel": "^5.3.0",
+    "@fontsource/cinzel-decorative": "*",
+    "@fontsource/cormorant-garamond": "*",
+    "@fontsource/great-vibes": "*",
+    "@fontsource/noto-serif-malayalam": "*",
     "motion": "^12.23.6",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "@fontsource/cinzel-decorative": "*",
-    "@fontsource/great-vibes": "*",
-    "@fontsource/cormorant-garamond": "*",
-    "@fontsource/noto-serif-malayalam": "*"
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.5.2",
     "@tailwindcss/vite": "^4.1.11",
+    "@vitejs/plugin-react": "^4.5.2",
     "tailwindcss": "^4.1.11",
     "vite": "^6.3.5"
   }

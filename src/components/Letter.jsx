@@ -102,113 +102,158 @@ export default function Letter({ t, lang, countdown }) {
           </p>
         </Reveal>
 
-        {/* Invitation header styled like reference stationery */}
+        {/* Invitation header: slight gap below greeting, slight gap above/below the whole block */}
         <Reveal delay={0.06}>
           <p
             className={`
-              font-serif text-[0.78rem] sm:text-sm text-[--color-ink] font-semibold mb-1
-              ${lang === "ml" ? "normal-case tracking-normal text-xs sm:text-sm font-semibold" : "uppercase tracking-[0.2em]"}
+              text-[0.75rem] sm:text-xs text-[--color-ink] font-semibold mt-2 mb-0
+              ${lang === "ml" ? "font-ml normal-case tracking-normal text-xs font-semibold" : "font-cinzel uppercase tracking-[0.22em]"}
             `}
           >
             {t("letter.tagline")}
           </p>
 
-          <p
-            className={
-              lang === "ml"
-                ? "font-ml font-bold text-3xl sm:text-4xl text-[--color-crimson] my-1.5"
-                : "font-script text-5xl sm:text-6xl text-[--color-crimson] leading-none my-1.5"
-            }
-          >
-            {t("letter.wedding")}
-          </p>
-
-          {lang === "en" && (
-            <p className="font-script text-2xl sm:text-3xl text-[--color-ink]/70 -mt-1 mb-1">
-              {t("letter.of")}
+          {/* ── The whole calligraphy block: Wedding / of / Names — with breathing room ── */}
+          <div className="mt-[25px] mb-[25px]">
+            {/* "Wedding" — slightly smaller than the names */}
+            <p
+              className={
+                lang === "ml"
+                  ? "font-ml font-bold text-3xl sm:text-4xl text-[--color-crimson] leading-tight mb-0"
+                  : "font-brittany text-4xl sm:text-5xl text-[--color-ink] leading-tight mb-0"
+              }
+            >
+              {t("letter.wedding")}
             </p>
-          )}
 
-          {/* Names laid out on 3 lines: "Aamir Suhail", "&", "Sajeena K S" */}
-          <div className="flex flex-col items-center mt-2 mb-5">
-            <span
-              className={`
-                text-[--color-ink] font-bold leading-tight
-                ${
-                  lang === "ml"
-                    ? "font-ml text-2xl sm:text-3xl"
-                    : "font-serif text-[1.75rem] sm:text-3xl md:text-4xl tracking-wide"
-                }
-              `}
-            >
-              {t("letter.groom")}
-            </span>
+            {lang === "en" && (
+              <p className="font-moontime text-2xl sm:text-3xl text-[--color-ink] leading-none mt-0 mb-0">
+                {t("letter.of")}
+              </p>
+            )}
 
-            <span
-              className={`
-                my-1 select-none leading-none
-                ${
-                  lang === "ml"
-                    ? "font-ml text-xl sm:text-2xl text-[--color-gold] font-bold"
-                    : "font-serif italic text-2xl sm:text-3xl text-[--color-gold] font-normal"
-                }
-              `}
-              aria-hidden="true"
-            >
-              &
-            </span>
+            {/* Names: Aamir Suhail / and / Sajeena K S */}
+            <div className="flex flex-col items-center mt-0">
+              <span
+                className={`
+                  text-[--color-ink] leading-tight whitespace-nowrap
+                  ${
+                    lang === "ml"
+                      ? "font-ml font-bold text-2xl sm:text-3xl"
+                      : "font-brittany text-4xl sm:text-5xl md:text-6xl tracking-wide"
+                  }
+                `}
+              >
+                {t("letter.groom")}
+              </span>
 
-            <span
-              className={`
-                text-[--color-ink] font-bold leading-tight
-                ${
-                  lang === "ml"
-                    ? "font-ml text-2xl sm:text-3xl"
-                    : "font-serif text-[1.75rem] sm:text-3xl md:text-4xl tracking-wide"
-                }
-              `}
-            >
-              {t("letter.bride")}
-            </span>
+              <span
+                className={`
+                  select-none leading-none
+                  ${
+                    lang === "ml"
+                      ? "font-ml text-xl sm:text-2xl text-[--color-gold] font-bold"
+                      : "font-moontime text-2xl sm:text-3xl text-[--color-ink] font-normal"
+                  }
+                `}
+                aria-hidden="true"
+              >
+                {lang === "en" ? t("letter.and") : t("letter.ampersand")}
+              </span>
+
+              <span
+                className={`
+                  text-[--color-ink] leading-tight whitespace-nowrap
+                  ${
+                    lang === "ml"
+                      ? "font-ml font-bold text-2xl sm:text-3xl"
+                      : "font-brittany text-4xl sm:text-5xl md:text-6xl tracking-wide"
+                  }
+                `}
+              >
+                {t("letter.bride")}
+              </span>
+            </div>
           </div>
         </Reveal>
 
-        {/* Date, Time, Venue block */}
-        <Reveal delay={0.12}>
-          <div className="my-2 space-y-1.5">
-            <p
-              className={`
-                font-serif text-sm sm:text-base text-[--color-ink] font-semibold max-w-[32ch] mx-auto leading-relaxed
-                ${lang === "ml" ? "normal-case tracking-normal" : "uppercase tracking-wider"}
-              `}
-            >
-              {renderWithLargerNumbers(t("letter.date"))}
-            </p>
-            <p
-              className={`
-                font-serif text-xs sm:text-sm text-[--color-ink] font-semibold leading-snug
-                ${lang === "ml" ? "normal-case tracking-normal" : "uppercase tracking-wider"}
-              `}
-            >
-              {renderWithLargerNumbers(t("letter.time"))}
-            </p>
-            <p
-              className={`
-                font-serif text-xs sm:text-sm text-[--color-ink] font-semibold max-w-[30ch] mx-auto leading-relaxed pt-0.5
-                ${lang === "ml" ? "normal-case tracking-normal" : "uppercase tracking-wider"}
-              `}
-            >
-              {t("letter.venue")}
-            </p>
+        {/* ── Venue + Date info row ── */}
+        <Reveal delay={0.1}>
+          <div className="w-full flex items-stretch justify-center gap-0 mt-3 mb-2">
+            {/* Left: venue with location pin */}
+            <div className="flex items-start gap-2 pr-5 sm:pr-7 border-r border-[--color-ink]/30">
+              {/* Location pin icon */}
+              <svg
+                className="w-[1.1rem] h-[1.1rem] mt-0.5 flex-shrink-0 text-[--color-ink]"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                <circle cx="12" cy="9" r="2.5" />
+              </svg>
+              <p
+                className={`
+                  text-left leading-snug text-[--color-ink]
+                  ${lang === "ml" ? "font-ml text-sm font-semibold" : "font-cinzel text-[0.72rem] sm:text-xs uppercase tracking-[0.08em] font-bold"}
+                `}
+              >
+                {lang === "ml" ? (
+                  <>ഷേർളി ഓഡിറ്റോറിയം<br />കുളത്തൂപ്പുഴ</>
+                ) : (
+                  <>Sherley<br />Auditorium<br />Kulathupuzha</>
+                )}
+              </p>
+            </div>
+
+            {/* Right: date + time with calendar icon */}
+            <div className="flex items-start gap-2 pl-5 sm:pl-7">
+              {/* Calendar icon */}
+              <svg
+                className="w-[1.1rem] h-[1.1rem] mt-0.5 flex-shrink-0 text-[--color-ink]"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+              <p
+                className={`
+                  text-left leading-snug text-[--color-ink]
+                  ${lang === "ml" ? "font-ml text-sm font-semibold" : "font-cinzel text-[0.72rem] sm:text-xs uppercase tracking-[0.08em] font-bold"}
+                `}
+              >
+                {lang === "ml" ? (
+                  <>ഡിസംബർ 6<br />ഞായർ<br />ഉച്ചയ്ക്ക് 12:30 ന്</>
+                ) : (
+                  <>December 6<br />Sunday<br />12:30 PM</>
+                )}
+              </p>
+            </div>
           </div>
         </Reveal>
 
-        {/* Request sentence: "We kindly request the presence of you and your family to celebrate with us." */}
+        {/* Request sentence */}
         <Reveal delay={0.18}>
           <p
             className={`
-              font-serif text-sm sm:text-base leading-relaxed text-[--color-ink]/85 max-w-[34ch] mx-auto mt-4 mb-2
-              ${lang === "ml" ? "font-ml text-sm sm:text-base" : ""}
+              leading-relaxed text-[--color-ink] max-w-[34ch] mx-auto mt-4 mb-2
+              ${
+                lang === "ml"
+                  ? "font-ml text-sm sm:text-base"
+                  : "font-cinzel text-xs sm:text-sm uppercase tracking-[0.1em] font-medium"
+              }
             `}
           >
             {t("letter.request")}
@@ -290,8 +335,12 @@ export default function Letter({ t, lang, countdown }) {
         <Reveal delay={0.4}>
           <p
             className={`
-              font-serif text-sm sm:text-base italic leading-relaxed text-[--color-ink]/85 max-w-[34ch] mx-auto mb-2
-              ${lang === "ml" ? "font-ml not-italic text-sm sm:text-base" : ""}
+              leading-relaxed text-[--color-ink] max-w-[34ch] mx-auto mb-2
+              ${
+                lang === "ml"
+                  ? "font-ml not-italic text-sm sm:text-base"
+                  : "font-cinzel text-xs sm:text-sm uppercase tracking-[0.08em] font-medium"
+              }
             `}
           >
             {t("footer.closingMessage")}
