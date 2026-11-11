@@ -59,13 +59,13 @@ export default function Hero({ t, phase, lang }) {
       style={{ minHeight: "100dvh", backgroundColor: "#3D0103" }}
       aria-label={t("hero.names")}
     >
-      {/* ── Background floral pattern fitting the screen behind the card ── */}
+      {/* ── Screen background image behind the hero card ── */}
       <img
         src="/hero-bg.jpg"
         alt=""
         className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
-        aria-hidden="true"
         loading="eager"
+        aria-hidden="true"
       />
 
       {/* ── Wax-sealed card container ── */}
@@ -118,8 +118,8 @@ export default function Hero({ t, phase, lang }) {
           {/* "Save the date" */}
           <motion.p
             className={`
-              font-serif text-xs sm:text-sm text-[--color-ink]/80 mb-2 sm:mb-3 leading-tight
-              ${lang === "ml" ? "normal-case tracking-normal" : "uppercase tracking-[0.25em]"}
+              text-xs sm:text-sm text-[--color-ink]/80 mb-2 sm:mb-3 leading-tight
+              ${lang === "ml" ? "font-ml normal-case tracking-normal" : "font-cinzel uppercase tracking-[0.25em]"}
             `}
             initial={{ opacity: 0, y: reduced ? 0 : 12 }}
             animate={getAnimate(1)}
