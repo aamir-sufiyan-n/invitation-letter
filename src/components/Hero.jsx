@@ -59,9 +59,18 @@ export default function Hero({ t, phase, lang }) {
       style={{ minHeight: "100dvh", backgroundColor: "#3D0103" }}
       aria-label={t("hero.names")}
     >
+      {/* ── Background floral pattern fitting the screen behind the card ── */}
+      <img
+        src="/hero-bg.jpg"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+        aria-hidden="true"
+        loading="eager"
+      />
+
       {/* ── Wax-sealed card container ── */}
       <motion.div
-        className="relative w-full max-w-[390px] aspect-[576/1024] max-h-[82dvh] sm:max-h-[85dvh] flex items-center justify-center select-none"
+        className="relative z-10 w-full max-w-[390px] aspect-[375/666] max-h-[82dvh] sm:max-h-[85dvh] flex items-center justify-center select-none"
         initial={{ opacity: 0, scale: reduced ? 1 : 0.96 }}
         animate={{
           opacity: 1,
@@ -71,7 +80,7 @@ export default function Hero({ t, phase, lang }) {
       >
         {/* Card backdrop image with deckled edges and 3D wax seal */}
         <img
-          src="/hero-card.jpg"
+          src="/hero-card.png"
           alt=""
           className="w-full h-full object-contain pointer-events-none"
           loading="eager"
